@@ -1,0 +1,222 @@
+@mixin vendor-prefix($name, $argument) {
+  -webkit-#{$name}: #{$argument};
+  -ms-#{$name}: #{$argument};
+  -moz-#{$name}: #{$argument};
+  -o-#{$name}: #{$argument};
+  #{$name}: #{$argument};
+}
+
+@font-face {
+  font-family: "SourceCodePro";
+  src: url("SourceCodePro-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "SourceSansPro";
+  src: url("SourceSansPro-Light.ttf") format("truetype");
+}
+
+$bg-color: #0e1414;
+$fg-color: #d0d0d0;
+$accent-color: #a5c261;
+$link-color: #F0854D;
+$text-font: "SourceSansPro", sans-serif;
+$box-color: lighten($bg-color, 4%);
+$code-font: "SourceCodePro", monospace;
+$box-radius: 6px;
+
+body {
+  font-family: $text-font;
+  color: $fg-color;
+  background-color: $bg-color;
+  font-weight: 200;
+  font-size: 26pt;
+  line-height: 1.375;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width:1600px) {
+  body {
+    font-size: 22pt;
+  }
+}
+
+
+@media (max-width:1200px) {
+  body {
+    font-size: 18pt;
+  }
+}
+
+@media (max-width:1000px) {
+  body {
+    font-size: 16pt;
+  }
+}
+
+@media (max-width:800px) {
+  body {
+    font-size: 14pt;
+  }
+}
+
+
+::selection {
+  background: darken($accent-color, 25%);
+}
+
+.slide {
+  position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1em;
+
+  &.hidden {
+    visibility: hidden;
+  }
+}
+
+// helpers
+
+img.background, img#background {
+  position: fixed;
+  top: 0; bottom: 0; left: 0; right: 0;
+  margin: auto;
+  height: auto;
+  min-height: 100%;
+  min-width: 100%;
+  z-index: -1;
+  @include vendor-prefix(filter, brightness(20%) contrast(85%))
+}
+
+span.background, {
+  position: fixed;
+  top: 0; bottom: 0; left: 0; right: 0;
+  z-index: -1;
+}
+
+img#background {
+  z-index: -2;
+  visibility: visible;
+}
+
+.left {
+  float: left;
+  width: 48%;
+}
+
+.right {
+  float: right;
+  width: 48%;
+}
+
+// standard elements
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 100;
+  color: $accent-color;
+  margin-bottom: 1em;
+}
+
+h1 {
+  color: $fg-color;
+  max-width: 1000px;
+  font-size: 230%;
+  line-height: 1.2em;
+  text-align: center;
+  margin: 3em auto 1.5em auto;
+}
+
+h2 {
+  font-size: 120%;
+  margin: 5px 0;
+  text-align: center;
+}
+
+h3 {
+  font-size: 140%;
+  border-bottom: 2px solid;
+  margin: 0;
+  padding-bottom: 15px;
+}
+
+h4, h5, h6 {
+  text-decoration: underline;
+}
+
+p, ul, ol, blockquote, pre {
+  margin-bottom: 0.8em;
+  margin-top: 0.8em;
+}
+
+a, a:visited {
+  text-decoration: none;
+  color: $link-color;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+}
+
+ul, ol {
+  padding-left: 1.5em;
+}
+
+blockquote {
+  margin: 0;
+  padding: 0.5em;
+  font-style: italic;
+
+  p {
+    margin: 0;
+    padding-left: 1em;
+  }
+
+  &:before {
+    font-size: 600%;
+    content: "\201C";
+    float: left;
+    line-height: 0;
+    position: relative;
+    left: -0.35em;
+    top: 0.35em;
+  }
+}
+
+code {
+  background-color: $box-color;
+  border-radius: $box-radius;
+  border: 1px solid lighten($box-color, 10%);
+  background: $box-color;
+  font-family: $code-font;
+  padding: 0.1em 0.25em;
+  margin: 0em 0.1em;
+}
+
+pre code {
+  display: block;
+  overflow: auto;
+  padding: 0.5em;
+  margin: 0;
+  font-size: 75%;
+  line-height: 1.3;
+}
+
+table td, table th {
+  padding-right: 3em;
+  text-align: left;
+}
+
+#progress-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background-color: $accent-color;
+  @include vendor-prefix(transition, width 0.3s ease-in-out)
+}

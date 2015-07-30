@@ -1,0 +1,30 @@
+doctype html
+html
+  head
+    title= 'sho'
+    style
+      include ./node_modules/highlight.js/styles/railscasts.css
+    style
+      include:scss ./style/style.scss
+
+  body
+    #progress-bar
+    each slideHtml in slides
+      section.slide !{slideHtml}
+
+    script
+      :coffee-script
+        slides = document.querySelectorAll ".slide"
+        progressBar = document.querySelector "#progress-bar"
+        navigate = (dir) ->
+          currIndex = parseInt(window.location.hash?.slice(1)) or 0
+          destIndex = Math.max(Math.min(currIndex + dir, slides.length - 1), 0)
+          for slide, i in slides
+            if i == destIndex then slide.classList.remove "hidden" else slide.classList.add "hidden"
+          document.location.hash = destIndex
+          progressBar.style.width = "#{100 * destIndex / (slides.length - 1)}%"
+        document.onkeydown = (e) ->
+          switch e.keyCode
+            when 37 then navigate -1
+            when 39 then navigate 1
+        navigate 0

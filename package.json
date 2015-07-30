@@ -1,0 +1,26 @@
+{
+  "name": "sho",
+  "description": "A tiny commonmark to HTML slideshow generator",
+  "version": "1.0.0",
+  "author": "csauve",
+  "license": "MIT",
+  "homepage": "https://github.com/csauve/sho",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/csauve/sho.git"
+  },
+  "bugs": {
+    "url": "https://github.com/csauve/node-greenbot/issues"
+  },
+  "main": "sho.js",
+  "preferGlobal": true,
+  "bin": "./sho.js",
+  "dependencies": {
+    "highlight.js": "^8.7.0",
+    "jade": "^1.11.0",
+    "jstransformer-coffee-script": "^0.1.0",
+    "jstransformer-scss": "^0.1.1",
+    "minimist": "^1.1.2",
+    "remarkable": "^1.6.0"
+  }
+}
