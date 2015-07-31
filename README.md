@@ -61,7 +61,7 @@ To include a **background image in one slide**, add an `img` tag with `class="ba
 ```md
 ---
 
-<img id="background" src="images/slide5-bg.jpg"/>
+<img class="background" src="images/slide5-bg.jpg"/>
 ### Slide 5
 etc...
 
