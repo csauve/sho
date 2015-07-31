@@ -42,7 +42,6 @@ body {
   }
 }
 
-
 @media (max-width:1200px) {
   body {
     font-size: 18pt;
@@ -91,7 +90,7 @@ img.background, img#background {
   @include vendor-prefix(filter, brightness(20%) contrast(85%))
 }
 
-span.background, {
+span.background, span#background, {
   position: fixed;
   top: 0; bottom: 0; left: 0; right: 0;
   z-index: -1;
@@ -102,14 +101,23 @@ img#background {
   visibility: visible;
 }
 
+span#background {
+  z-index: -2;
+  visibility: visible;
+}
+
 .left {
   float: left;
-  width: 48%;
+  width: 45%;
 }
 
 .right {
   float: right;
-  width: 48%;
+  width: 45%;
+}
+
+.center {
+  text-align: center;
 }
 
 // standard elements
@@ -126,7 +134,7 @@ h1 {
   font-size: 230%;
   line-height: 1.2em;
   text-align: center;
-  margin: 3em auto 1.5em auto;
+  margin: 2.5em auto 1.2em auto;
 }
 
 h2 {
@@ -162,6 +170,7 @@ a:hover {
 
 img {
   max-width: 100%;
+  margin: 1em;
 }
 
 ul, ol {
@@ -211,6 +220,10 @@ pre code {
 table td, table th {
   padding-right: 3em;
   text-align: left;
+}
+
+table th {
+  text-decoration: underline;
 }
 
 #progress-bar {

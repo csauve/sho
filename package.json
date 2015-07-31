@@ -10,7 +10,7 @@
     "url": "https://github.com/csauve/sho.git"
   },
   "bugs": {
-    "url": "https://github.com/csauve/node-greenbot/issues"
+    "url": "https://github.com/csauve/sho/issues"
   },
   "main": "sho.js",
   "preferGlobal": true,
