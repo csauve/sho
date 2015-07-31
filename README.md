@@ -44,7 +44,7 @@ $ sho presentation.md --watch
 Just open the HTML file in your favourite browser and you're ready to go!
 
 ## Helpers
-CommonMark allows the [inclusion of HTML tags](http://spec.commonmark.org/0.21/#html-blocks) in your markdown. Sho's stylesheet has some special classes and IDs can be used to customize your slides:
+CommonMark allows the [inclusion of HTML tags](http://spec.commonmark.org/0.21/#html-blocks) in your markdown. Sho's stylesheet includes some special classes and IDs for customizing your slides:
 
 ![sho slides example 1](http://csauve.github.io/sho/examples/example-2.png)
 
