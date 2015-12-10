@@ -17,7 +17,7 @@
   "bin": "./sho.js",
   "dependencies": {
     "highlight.js": "^8.7.0",
-    "jade": "^1.11.0",
+    "jade": "1.11.0",
     "jstransformer-coffee-script": "^0.1.0",
     "jstransformer-scss": "^0.1.1",
     "minimist": "^1.1.2",
