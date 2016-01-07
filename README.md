@@ -95,6 +95,11 @@ You can **left/right float images** by adding the corresponding class to an `img
 <img src="images/example.jpg" class="right"/>
 ```
 
+A tag can be styled **inline-block** with the `inline` class:
+```md
+<h4 class="inline">Example:</h4> `code fragment`
+```
+
 ## API
 This module can programmatically transform Markdown files. Install the module non-globally:
 ```sh

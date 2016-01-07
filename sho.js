@@ -9,7 +9,7 @@ var md = new Remarkable({
   linkify: true,
   breaks: true,
   highlight: function(str, lang) {
-    lang ? return hljs.highlight(lang, str).value : str;
+    return lang ? hljs.highlight(lang, str).value : str;
   }
 });
 
