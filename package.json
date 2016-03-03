@@ -1,7 +1,7 @@
 {
   "name": "sho",
   "description": "A tiny commonmark to HTML slideshow generator",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "csauve",
   "license": "MIT",
   "homepage": "https://github.com/csauve/sho",

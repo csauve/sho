@@ -9,20 +9,34 @@ html
 
   body
     #progress-bar
+    if minutes
+      #minutes-bar(data-minutes=minutes)
     each slideHtml in slides
       section.slide !{slideHtml}
 
     script
       :coffee-script
+        window.startTime = new Date().getTime()
         slides = document.querySelectorAll ".slide"
         progressBar = document.querySelector "#progress-bar"
+        minutesBar = document.getElementById("minutes-bar")
+        if minutesBar
+          console.log "aa"
+          minutes = parseInt(minutesBar.getAttribute("data-minutes"))
+          updateMinutes = () ->
+            minutesElapsed = (new Date().getTime() - window.startTime) / 60000
+            console.log minutesElapsed
+            minutesBar.style.width = "#{Math.min(100.0, 100.0 * minutesElapsed / minutes)}%"
+          setInterval(updateMinutes, 1000)
         navigate = (dir) ->
           currIndex = parseInt(window.location.hash?.slice(1)) or 0
           destIndex = Math.max(Math.min(currIndex + dir, slides.length - 1), 0)
           for slide, i in slides
             if i == destIndex then slide.classList.remove "hidden" else slide.classList.add "hidden"
           document.location.hash = destIndex
-          progressBar.style.width = "#{100 * destIndex / (slides.length - 1)}%"
+          progressBar.style.width = "#{100.0 * destIndex / (slides.length - 1)}%"
+          if destIndex == 0
+            window.startTime = new Date().getTime()
         document.onkeydown = (e) ->
           switch e.keyCode
             when 37 then navigate -1

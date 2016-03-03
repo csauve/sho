@@ -230,10 +230,20 @@ table th {
   text-decoration: underline;
 }
 
-#progress-bar {
+#progress-bar, #minutes-bar {
   position: fixed;
-  top: 0; left: 0; right: 0;
+  left: 0; right: 0;
   height: 2px;
-  background-color: $accent-color;
   @include vendor-prefix(transition, width 0.3s ease-in-out)
+  opacity: 0.5;
+}
+
+#progress-bar {
+  background-color: $accent-color;
+  top: 0;
+}
+
+#minutes-bar {
+  background-color: $link-color;
+  top: 2px;
 }
