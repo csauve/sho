@@ -16,11 +16,12 @@ Short loin `spare ribs` pork doner venison.
 ![sho slides example 1](http://csauve.github.io/sho/examples/example-1.png)
 
 ## Features
+* Arrow-key navigation
 * Comes pre-styled so you can concentrate on content
 * [CommonMark](http://commonmark.org/) support with sensible defaults
 * Code highlighting with [highlight.js](https://highlightjs.org)
-* Arrow-key navigation
 * Slide progress bar
+* Timer progress bar
 * Can watch your source file for continuous editing
 * Generated HTML has no external dependencies
 * Text scales down for low resolution projectors and screens
@@ -40,10 +41,15 @@ $ sho presentation.md
 $ sho input.md output.html
 # you can also watch files
 $ sho presentation.md --watch
+# generate an included timer
+$ sho slides.md --minutes 10
 ```
 Just open the HTML file in your favourite browser and you're ready to go!
 
-## Helpers
+## Timer
+By adding the command line option `--minutes <integer>`, the slides will be generated with an included timer progress bar underneath the slides progress bar. The timer will reset every time you navigate to the first slide, including by pressing the left arrow key while viewing the first slide.
+
+## HTML Features
 CommonMark allows the [inclusion of HTML tags](http://spec.commonmark.org/0.21/#html-blocks) in your markdown. Sho's stylesheet includes some special classes and IDs for customizing your slides:
 
 ![sho slides example 1](http://csauve.github.io/sho/examples/example-2.png)
@@ -109,7 +115,9 @@ npm install sho
 Then require and call Sho:
 ```js
 var sho = require("sho");
-sho("~/docs/input.md", "~/docs/output.html");
+//3rd argument is optional
+var minutes = 10;
+sho("~/docs/input.md", "~/docs/output.html", minutes);
 ```
 
 ## Alternatives
